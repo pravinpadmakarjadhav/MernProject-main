@@ -1105,3 +1105,8 @@ label.valid:after {
     font-size: 26px;
   }
 }
+
+
+.signup-form{
+  margin: auto;
+}
