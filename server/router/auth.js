@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
+const authenticate = require('../middleware/authenticate');
 
 require('../db/conn');
 const User = require ("../model/userSchema");
@@ -116,7 +117,10 @@ console.log(err);
    }
 });
 
-
+router.get('/about',authenticate ,(req, res)=>{
+    console.log("hello my about");
+    res.send(`hello world from the server`);
+});
 
 
 module.exports = router;
