@@ -20,7 +20,7 @@ const loginUser = async (e)=>{
   });
 
   const data = res.json();
-  if(res.status === 400 || !data){
+  if(data.status === 400 || !data){
     window.alert("Invalid email or password");
 
   }else{
