@@ -27,8 +27,7 @@ const Signup = () => {
         const res = await fetch("/register", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
-                'Accept': 'application/json'
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 name, email, phone, work, password, cpassword
@@ -37,8 +36,8 @@ const Signup = () => {
 
         const data = await res.json();
 
-        
-        if (res.status === 422 || !data) {
+        // I need to change the data to res 
+        if (data.status === 422 || !data) {
             window.alert("INvalid Registration");
             console.log("INvalid Registration");
         } else {
@@ -63,7 +62,7 @@ const Signup = () => {
                                     <label htmlFor="name">
                                         <i className="zmdi zmdi-account material-icons-name"></i>
                                     </label>
-                                    <input type="text" name="name" id="name" autoComplete="off"
+                                    <input type="text" name="name" id="name" autocomplete="off"
                                         value={user.name}
                                         onChange={handleInputs}
                                         placeholder="Your Name"
@@ -149,4 +148,4 @@ const Signup = () => {
     )
 }
 
-export default Signup;
+export default Signup
